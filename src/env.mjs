@@ -10,7 +10,11 @@ export const env = createEnv({
     NEXT_PUBLIC_API_URL: z.string().url().optional(),
   },
   client: {
+    NEXT_PUBLIC_SITE_URL: z.string().url().optional(),
     NEXT_PUBLIC_API_URL: z.string().url().optional(),
+    NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION_ID: z.string().min(1).optional(),
+    NEXT_PUBLIC_GITHUB_ID: z.string().min(1).optional(),
+    NEXT_PUBLIC_GITHUB_SECRET: z.string().min(1).optional(),
   },
   runtimeEnv: {
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,

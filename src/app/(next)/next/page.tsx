@@ -4,16 +4,17 @@ import { useSession } from 'next-auth/react';
 
 import { HeroForm } from '@/components/form';
 import { SignOutButton } from '@/components/sign-out-button';
+import { env } from '@/env.mjs';
 
-// export const metadata = {
-//   title: 'Next',
-// };
+// const env.NEXT_PUBLIC_API_URL;
 
 const Next = () => {
   const { data: session } = useSession();
 
   return (
     <section>
+      <p>{env.NEXT_PUBLIC_API_URL}</p>
+      <p>{process.env.NEXT_PUBLIC_API_URL}</p>
       {session && (
         <div>
           <h1>next-equities</h1>
