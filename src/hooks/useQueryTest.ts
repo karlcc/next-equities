@@ -10,7 +10,9 @@ const queryWatchlist = async () => {
   //   data: WatchlistDto[];
   // }>('/api/v1/watchlists');
   // return response.data?.data?.map((watachlistDto) => toModel(watachlistDto));
-  const response = await fetch('http://54.255.191.34:8080/api/v1/watchlists');
+  const response = await fetch(
+    'https://nextapi.alphasolves.com/api/v1/watchlists'
+  );
   // const watchlists = response.data as Watchlist[];
   const watchlists = response.json();
   return watchlists;
