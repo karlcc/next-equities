@@ -1,37 +1,32 @@
-/* eslint-disable react/no-unescaped-entities */
 'use client';
-import { useSession } from 'next-auth/react';
 
-import { HeroForm } from '@/components/form';
-import { SignOutButton } from '@/components/sign-out-button';
-import { env } from '@/env.mjs';
+import React, { useEffect, useState } from 'react';
 
-// const env.NEXT_PUBLIC_API_URL;
+const MyPage = () => {
+  const [responseJson, setResponseJson] = useState('');
 
-const Next = () => {
-  const { data: session } = useSession();
+  useEffect(() => {
+    const fetchWatchlists = async () => {
+      try {
+        const response = await fetch(
+          'http://54.255.191.34:8080/api/v1/watchlists'
+        );
+        const data = await response.json();
+        setResponseJson(JSON.stringify(data, null, 2));
+      } catch (error) {
+        console.error('Error fetching watchlists:', error);
+      }
+    };
+
+    fetchWatchlists();
+  }, []);
 
   return (
-    <section>
-      <p>{env.NEXT_PUBLIC_API_URL}</p>
-      <p>{process.env.NEXT_PUBLIC_API_URL}</p>
-      {session && (
-        <div>
-          <h1>next-equities</h1>
-          {session.user && (
-            <>
-              <p>Session user:</p>
-              <p>Name: {session.user.name}</p>
-              <p>Email: {session.user.email}</p>
-              <p>Image: {session.user.image}</p>
-            </>
-          )}
-        </div>
-      )}
-      <HeroForm />
-      <SignOutButton />
-    </section>
+    <div>
+      <h1>Watchlists JSON</h1>
+      <pre>{responseJson}</pre>
+    </div>
   );
 };
 
-export default Next;
+export default MyPage;
