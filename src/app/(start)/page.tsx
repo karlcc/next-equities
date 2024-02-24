@@ -25,7 +25,7 @@ const Home = () => {
           <a href="/risknreward">introduction</a>
         </Button>
         <Button variant="outline" asChild>
-          <a href="https://github.com/karlcc/next-equities-client">
+          <a href="https://github.com/karlcc/next-equities">
             <Icons.gitHub className="mr-2 size-4" /> Github
           </a>
         </Button>

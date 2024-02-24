@@ -9,7 +9,7 @@ const MyPage = () => {
     const fetchWatchlists = async () => {
       try {
         const response = await fetch(
-          'http://54.255.191.34:8080/api/v1/watchlists'
+          'https://nextapi.alphasolves.com/api/v1/watchlists'
         );
         const data = await response.json();
         setResponseJson(JSON.stringify(data, null, 2));

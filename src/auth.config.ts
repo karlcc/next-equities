@@ -14,6 +14,7 @@ export default {
       return true;
     },
   },
+  trustHost: true,
 } satisfies NextAuthConfig;
 
 // export const { handlers, auth, signIn, signOut } = NextAuth(config);

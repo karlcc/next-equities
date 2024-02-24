@@ -11,7 +11,8 @@ const queryWatchlist = async () => {
   // }>('/api/v1/watchlists');
   // return response.data?.data?.map((watachlistDto) => toModel(watachlistDto));
   const response = await fetch(
-    'https://nextapi.alphasolves.com/api/v1/watchlists'
+    'https://nextapi.alphasolves.com/api/v1/watchlists',
+    { next: { revalidate: 0 } }
   );
   // const watchlists = response.data as Watchlist[];
   const watchlists = response.json();
